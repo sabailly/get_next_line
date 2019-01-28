@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarbaill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 16:18:56 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/01/08 19:41:55 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/01/25 22:24:50 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_iterative_factorial(int nb)
 {
-	size_t	total;
+	int	total;
 
 	total = 1;
 	if (nb < 0 || nb >= 13)

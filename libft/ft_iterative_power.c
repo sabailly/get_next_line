@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarbaill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 12:48:09 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/01/08 20:31:47 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/01/25 22:25:06 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		ft_iterative_power(int nb, int power)
 {
-	size_t	result;
-u	size_t	i;
+	int	result;
+	int	i;
 
 	result = nb;
 	i = power;
