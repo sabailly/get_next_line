@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sarbaill <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/02 23:53:25 by sarbaill          #+#    #+#              #
-#    Updated: 2019/01/07 19:16:04 by sarbaill         ###   ########.fr        #
+#    Updated: 2019/02/05 16:38:07 by sarbaill         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ SRC = 	ft_atoi.c \
 		ft_strupcase.c \
 		ft_sqrt.c \
 		ft_str_is_printable.c \
+		ft_strjoin_free.c\
 
 
 OBJ = $(SRC:.c=.o)

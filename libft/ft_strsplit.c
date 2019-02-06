@@ -6,7 +6,7 @@
 /*   By: sarbaill <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/31 18:03:28 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/01/08 21:19:34 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:10:17 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static size_t	ft_letter_count(const char *s, size_t i, char c)
 	return (letter_nbr);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char					**ft_strsplit(char const *s, char c)
 {
-	char	**t;
+	char		**t;
 	size_t		wd;
 	size_t		word_len;
 	size_t		word;

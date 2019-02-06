@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   save_gnl_2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:14:29 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/02/05 16:38:09 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:57:34 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,26 @@ static char		*check_line(char *save, char **line)
 			i++;
 		*line = ft_strsub(save, 0, i);
 		tmp = ft_strdup(save + i + 1);
+		save = tmp;
 		return (tmp);
 	}
 	return (NULL);
+}
+
+static void		read_line(char **save, char *bucket, char **line)
+{
+	char	*tmp;
+
+	if (*save)
+	{
+		tmp = ft_strjoin(*save, bucket);
+		free(*save);
+		*save = tmp;
+	}
+	else
+		*save = ft_strdup(bucket);
+	if ((tmp = ft_strchr(*save, '\n')))
+		check_line(*save, line);
 }
 
 int				get_next_line(const int fd, char **line)
@@ -42,16 +59,7 @@ int				get_next_line(const int fd, char **line)
 	while ((i = read(fd, bucket, BUFF_SIZE)) > 0)
 	{
 		bucket[i] = '\0';
-		if (save)
-		{
-			tmp = ft_strjoin_free(save, bucket);
-			free(save);
-			save = tmp;
-		}
-		else
-			save = ft_strdup(bucket);
-		if ((tmp = ft_strchr(save, '\n')))
-			save = check_line(save, line);
+		read_line(&save, bucket, line);
 	}
 	if (save && save[0])
 	{
@@ -59,10 +67,9 @@ int				get_next_line(const int fd, char **line)
 		save = NULL;
 		return (1);
 	}
-	free(save);
 	return (0);
 }
-    
+
 int     main()
 {
     int     fd;

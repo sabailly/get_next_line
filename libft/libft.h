@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sarbaill <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 19:27:30 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/01/16 17:25:17 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/02/05 16:38:03 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,5 @@ char				*ft_strlowcase(char *str);
 char				*ft_strupcase(char *str);
 int					ft_sqrt(int nb);
 int					ft_str_is_printable(char *str);
+char				*ft_strjoin(char const *s1, char const *s2);
 #endif

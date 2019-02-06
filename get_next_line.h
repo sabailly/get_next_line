@@ -6,13 +6,13 @@
 /*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 16:07:34 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/01/25 18:56:16 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:10:56 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef  GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 8
+# define BUFF_SIZE 1000
 # include <fcntl.h>
 # include <sys/types.h>
 # include <sys/uio.h>
