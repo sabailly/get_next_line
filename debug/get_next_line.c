@@ -6,7 +6,7 @@
 /*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:14:29 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/02/07 15:47:18 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/02/07 19:52:50 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ static char		*check_line(char *save, char **line)
 		i = 0;
 		while (save[i] && save[i] != '\n')
 			i++;
-		*line = ft_strsub(save, 0, i);
-		tmp = ft_strdup(save + i + 1);
+		if(!(*line = ft_strsub(save, 0, i)))
+			exit(1);
+		if(!(tmp = ft_strdup(save + i + 1)))
+			exit(1);
 		return (tmp);
 	}
 	return (NULL);
@@ -44,12 +46,14 @@ int				get_next_line(const int fd, char **line)
 		bucket[i] = '\0';
 		if (save)
 		{
-			tmp = ft_strjoin(save, bucket);
-			free(save);
+			if (!(tmp = ft_strjoin(save, bucket)))
+				return(0);
+			//free(save);
 			save = tmp;
 		}
 		else
-			save = ft_strdup(bucket);
+			if(!(save = ft_strdup(bucket)))
+				return (0);
 		if ((tmp = ft_strchr(save, '\n')))
 			save = check_line(save, line);
 	}
@@ -59,7 +63,7 @@ int				get_next_line(const int fd, char **line)
 		save = NULL;
 		return (1);
 	}
-	free(save);
+	//free(save);
 	return (0);
 }
     
@@ -76,4 +80,5 @@ int     main()
         printf("%d\n", ret);
         free(line);
     }
+	close (fd);
 }

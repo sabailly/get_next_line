@@ -6,7 +6,7 @@
 /*   By: sarbaill <sarbaill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:14:29 by sarbaill          #+#    #+#             */
-/*   Updated: 2019/02/07 15:21:48 by sarbaill         ###   ########.fr       */
+/*   Updated: 2019/02/07 19:52:48 by sarbaill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,22 @@ static char		*check_line(char *save, char **line)
 			i++;
 		if(!(*line = ft_strsub(save, 0, i)))
 			exit(1);
-printf("a");
 		if(!(tmp = ft_strdup(save + i + 1)))
 			exit(1);
-printf("b");
 		return (tmp);
-printf("d");
 	}
 	return (NULL);
-printf("e");
 }
 
 int				get_next_line(const int fd, char **line)
 {
-	char		bucket[BUFF_SIZE];
+	char		bucket[BUFF_SIZE + 1];
 	static char	*save = NULL;
 	char		*tmp;
 	int			i;
 
 	if ((tmp = check_line(save, line)))
 		return (1);
-printf("A");
 	while ((i = read(fd, bucket, BUFF_SIZE)) > 0)
 	{
 		bucket[i] = '\0';
@@ -53,6 +48,7 @@ printf("A");
 		{
 			if (!(tmp = ft_strjoin(save, bucket)))
 				return (0);
+			//free(save);
 			save = tmp;
 		}
 		else 
@@ -67,7 +63,7 @@ printf("A");
 		save = NULL;
 		return (1);
 	}
-	free(save);
+	//free(save);
 	return (0);
 }
     
@@ -84,5 +80,5 @@ int     main()
         printf("%d\n", ret);
         free(line);
     }
-	close(fd);
+	//close(fd);
 }
